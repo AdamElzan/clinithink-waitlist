@@ -13,11 +13,26 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%231BACCF'/><text y='24' x='4' font-size='20' font-family='serif' fill='white'>CT</text></svg>"/>
   <link rel="canonical" href="https://clinithink.pl/"/>
   <meta name="description" content="Profesjonalna społeczność dla psychoterapeutów CBT, ACT i Terapii Schematu."/>
-  <!-- FB Pixel: odkomentuj i wklej ID
-  <script>!function(f,b,e,v,n,t,s){...}fbq('init','ID');fbq('track','PageView');</script> -->
-  <!-- GA4: odkomentuj i wklej ID
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ID"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-ID');</script> -->
+  <!-- Facebook Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1896868807601983');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1896868807601983&ev=PageView&noscript=1"/></noscript>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZST4ZSH9GB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZST4ZSH9GB');
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
@@ -657,6 +672,8 @@ function step1(){
   if(!n){toast('Wpisz swoje imię i nazwisko.');document.getElementById('fname').focus();return}
   if(!e||!e.includes('@')){toast('Wpisz poprawny adres e-mail.');document.getElementById('femail').focus();return}
   A.name=n;A.email=e;
+  if(typeof fbq!=='undefined'){fbq('track','Lead');}
+  if(typeof gtag!=='undefined'){gtag('event','sign_up',{method:'waitlist_email'});}
   showS('s2');
 }
 
@@ -723,6 +740,8 @@ async function submit(){
     toFS({Imie_i_nazwisko:A.name,Email:A.email,Rola:A.role,Wyzwania:A.ch.join(', '),Doswiadczenie:A.exp,Cena_zbyt_niska:pl||'—',Cena_zaporowa:ph||'—',Cena_adekwatna:pi||'—'})
   ]);
   if(gr||fs){
+    if(typeof fbq!=='undefined'){fbq('track','CompleteRegistration');}
+    if(typeof gtag!=='undefined'){gtag('event','generate_lead',{method:'clinithink_survey',role:A.role});}
     showS('s3');
   }else{
     toast('Coś poszło nie tak. Spróbuj ponownie.');
@@ -790,7 +809,7 @@ function faq(btn){
       <p class="last-update">Ostatnia aktualizacja: kwiecień 2025 · Dotyczy serwisu: clinithink.pl</p>
 
       <h3>1. Administrator danych</h3>
-      <p>Administratorem Twoich danych osobowych jest <strong>Adam Elżanowski</strong>, prowadzący działalność pod marką <strong>CliniThink Community</strong>, kontakt: <a href="mailto:adam.elzanowski@gmail.com">adam.elzanowski@gmail.com</a>.</p>
+      <p>Administratorem Twoich danych osobowych jest <strong>Adam Elżanowski</strong>, prowadzący działalność pod marką <strong>CliniThink Community</strong>, kontakt: <a href="/cdn-cgi/l/email-protection#ea8b8e8b87c48f86908b84859d998183aa8d878b8386c4898587"><span class="__cf_email__" data-cfemail="6a0b0e0b07440f06100b04051d1901032a0d070b030644090507">[email&#160;protected]</span></a>.</p>
 
       <h3>2. Jakie dane zbieramy i w jakim celu</h3>
       <p>Za pośrednictwem formularza listy oczekujących zbieramy wyłącznie:</p>
@@ -827,7 +846,7 @@ function faq(btn){
         <li><strong>Przenoszenie danych</strong></li>
         <li><strong>Wycofanie zgody</strong> w dowolnym momencie — bez wpływu na zgodność z prawem przetwarzania dokonanego przed wycofaniem</li>
       </ul>
-      <p>Aby skorzystać z dowolnego prawa, napisz na: <a href="mailto:adam.elzanowski@gmail.com">adam.elzanowski@gmail.com</a>. Odpowiemy w ciągu 30 dni.</p>
+      <p>Aby skorzystać z dowolnego prawa, napisz na: <a href="/cdn-cgi/l/email-protection#4a2b2e2b27642f26302b24253d3921230a2d272b232664292527"><span class="__cf_email__" data-cfemail="98f9fcf9f5b6fdf4e2f9f6f7efebf3f1d8fff5f9f1f4b6fbf7f5">[email&#160;protected]</span></a>. Odpowiemy w ciągu 30 dni.</p>
       <p>Masz także prawo wniesienia skargi do <strong>Prezesa Urzędu Ochrony Danych Osobowych</strong> (PUODO), ul. Stawki 2, 00-193 Warszawa.</p>
 
       <h3>7. Dobrowolność podania danych</h3>
@@ -890,7 +909,7 @@ function faq(btn){
         <li>daty startu i warunków dostępu dla Founding Members</li>
         <li>okazjonalnych materiałów edukacyjnych z zakresu CBT i myślenia klinicznego</li>
       </ul>
-      <p>Możesz w każdej chwili zrezygnować z komunikacji klikając link „wypisz się" w każdej wiadomości lub pisząc na: <a href="mailto:adam.elzanowski@gmail.com">adam.elzanowski@gmail.com</a>.</p>
+      <p>Możesz w każdej chwili zrezygnować z komunikacji klikając link „wypisz się" w każdej wiadomości lub pisząc na: <a href="/cdn-cgi/l/email-protection#92f3f6f3ffbcf7fee8f3fcfde5e1f9fbd2f5fff3fbfebcf1fdff"><span class="__cf_email__" data-cfemail="4e2f2a2f23602b22342f2021393d25270e29232f2722602d2123">[email&#160;protected]</span></a>.</p>
 
       <h3>6. Odpowiedzialność</h3>
       <p>Organizator dołoży wszelkich starań, by platforma CliniThink Community została uruchomiona zgodnie z zapowiedziami. Jednocześnie zastrzega, że zapis na listę oczekujących nie rodzi po jego stronie bezwzględnego zobowiązania do uruchomienia platformy w określonym terminie ani w ogóle — w sytuacji wystąpienia okoliczności niezależnych od Organizatora.</p>
@@ -907,7 +926,7 @@ function faq(btn){
 
       <h3>10. Kontakt</h3>
       <p>W sprawach dotyczących listy oczekujących, Regulaminu lub danych osobowych:<br/>
-      📧 <a href="mailto:adam.elzanowski@gmail.com">adam.elzanowski@gmail.com</a></p>
+      📧 <a href="/cdn-cgi/l/email-protection#05646164682b60697f646b6a72766e6c456268646c692b666a68"><span class="__cf_email__" data-cfemail="523336333f7c373e28333c3d2521393b12353f333b3e7c313d3f">[email&#160;protected]</span></a></p>
     </div>
   </div>
 </div>
@@ -924,18 +943,11 @@ function faq(btn){
     <div class="modal-body">
       <h3>Adam Elżanowski</h3>
       <p>Superwizor-Dydaktyk CBT, współzałożyciel Szkoły Psychoterapii HarmonJa, twórca CliniThink Community.</p>
-      <p>📧 <a href="mailto:adam.elzanowski@gmail.com">adam.elzanowski@gmail.com</a></p>
+      <p>📧 <a href="/cdn-cgi/l/email-protection#066762676b28636a7c67686971756d6f46616b676f6a2865696b"><span class="__cf_email__" data-cfemail="18797c7975367d74627976776f6b7371587f75797174367b7775">[email&#160;protected]</span></a></p>
       <p style="margin-top:24px;padding-top:24px;border-top:1px solid var(--border);font-size:.84rem;color:var(--dim)">
         Odpowiadam zazwyczaj w ciągu 1–2 dni roboczych. W sprawach pilnych — napisz w temacie wiadomości „PILNE".
       </p>
       <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;padding-top:20px;border-top:1px solid var(--border)">
         <a href="https://www.harmonja.edu.pl/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted);padding:9px 16px;border:1px solid var(--border);border-radius:8px;transition:border-color .2s,color .2s" onmouseover="this.style.color='var(--accent)';this.style.borderColor='rgba(27,172,207,.3)'" onmouseout="this.style.color='';this.style.borderColor=''">Szkoła Psychoterapii HarmonJa</a>
-        <a href="https://www.lazurowaterapia.pl/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted);padding:9px 16px;border:1px solid var(--border);border-radius:8px;transition:border-color .2s,color .2s" onmouseover="this.style.color='var(--accent)';this.style.borderColor='rgba(27,172,207,.3)'" onmouseout="this.style.color='';this.style.borderColor=''">Lazurowa Terapia</a>
-        <a href="https://akademiacbt.zanfia.co/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted);padding:9px 16px;border:1px solid var(--border);border-radius:8px;transition:border-color .2s,color .2s" onmouseover="this.style.color='var(--accent)';this.style.borderColor='rgba(27,172,207,.3)'" onmouseout="this.style.color='';this.style.borderColor=''">Akademia CBT Lazurowa</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-</body>
+        <a href="https://www.lazurowaterapia.pl/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted);padding:9px 16px;border:1px solid var(--border);bo
 </html>
